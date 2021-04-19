@@ -1,9 +1,10 @@
 import os 
 from model import model_train, model_load
+from config import DATA_DIR
 
 def main():
     
-    data_dir = os.path.join("..","data","cs-train")
+    data_dir = os.path.join(DATA_DIR, "cs-train")
     
     ## train the model
     model_train(data_dir ,test=False)
