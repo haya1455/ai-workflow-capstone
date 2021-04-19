@@ -6,7 +6,7 @@ module with functions to enable logging
 import time,os,re,csv,sys,uuid,joblib
 from datetime import date
 
-from config import LOG_DIR
+from src.config import LOG_DIR
 
 if not os.path.exists(LOG_DIR):
     os.mkdir(LOG_DIR)

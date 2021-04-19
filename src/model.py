@@ -10,11 +10,11 @@ from sklearn.metrics import mean_squared_error
 from sklearn.preprocessing import StandardScaler, OneHotEncoder
 from sklearn.pipeline import Pipeline
 
-from logger import update_predict_log, update_train_log
-from cslib import fetch_ts, engineer_features
+from src.logger import update_predict_log, update_train_log
+from src.cslib import fetch_ts, engineer_features
 
 ## model specific variables (iterate the version and note with each change)
-from config import MODEL_DIR, MODEL_VERSION, MODEL_VERSION_NOTE
+from src.config import MODEL_DIR, MODEL_VERSION, MODEL_VERSION_NOTE, DATA_DIR
 
 def _model_train(df,tag,test=False):
     """
@@ -81,7 +81,7 @@ def _model_train(df,tag,test=False):
                      MODEL_VERSION, MODEL_VERSION_NOTE,test=True)
   
 
-def model_train(data_dir,test=False):
+def model_train(data_dir, test=False):
     """
     funtion to train model given a df
     
@@ -115,9 +115,9 @@ def model_load(prefix='sl',data_dir=None,training=True):
     """
 
     if not data_dir:
-        data_dir = os.path.join("..","data","cs-train")
+        data_dir = os.path.join(DATA_DIR,"cs-train")
     
-    models = [f for f in os.listdir(MODEL_DIR) if re.search("sl",f)]
+    models = [f for f in os.listdir(MODEL_DIR) if re.search(prefix,f)]
 
     if len(models) == 0:
         raise Exception("Models with prefix '{}' cannot be found did you train?".format(prefix))
@@ -201,7 +201,7 @@ if __name__ == "__main__":
 
     ## train the model
     print("TRAINING MODELS")
-    data_dir = os.path.join("..","data","cs-train")
+    data_dir = os.path.join(DATA_DIR,"cs-train")
     model_train(data_dir,test=True)
 
     ## load the model
