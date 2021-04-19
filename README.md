@@ -55,13 +55,18 @@ Files for the IBM AI Enterprise Workflow Capstone project.
 12 directories, 36 files
 ```
 
-# Test notes
+# Test
 You can run all tests, MODEL, API, LOGGER, by running the following run-tests.py.
 ```sh
 $ python run-tests.py
 ```
+# Train
+You can train model.
+```python
+$ python run-model-train.py
+```
 
-# build and run docker
+# Build and run docker continer
 ```sh
 #build the image
 $ docker build -t capstone-app .
@@ -70,7 +75,7 @@ $ docker build -t capstone-app .
 $ docker run -p 4000:8080 capstone-app
 ```
 
-# API notes
+# API
 Requests and responses for prediction.
 ```python
 # requests
