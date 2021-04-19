@@ -8,8 +8,8 @@ from datetime import date
 
 from config import LOG_DIR
 
-if not os.path.exists(os.path.join(".","logs")):
-    os.mkdir("logs")
+if not os.path.exists(LOG_DIR):
+    os.mkdir(LOG_DIR)
 
 def update_train_log(country, timespan, eval_rmse, runtime, MODEL_VERSION, MODEL_VERSION_NOTE, test=False):
     """
@@ -19,9 +19,9 @@ def update_train_log(country, timespan, eval_rmse, runtime, MODEL_VERSION, MODEL
     ## name the logfile using something that cycles with date (day, month, year)    
     today = date.today()
     if test:
-        logfile = os.path.join("logs", "train-test.log")
+        logfile = os.path.join(LOG_DIR, "train-test.log")
     else:
-        logfile = os.path.join("logs", "train-{}-{}.log".format(today.year, today.month))
+        logfile = os.path.join(LOG_DIR, "train-{}-{}.log".format(today.year, today.month))
         
     ## write the data to a csv file    
     header = ['unique_id','timestamp', 'country', 'timespan', 'eval_rmse','model_version',
@@ -46,9 +46,9 @@ def update_predict_log(country, y_pred, y_proba, target_date, runtime, MODEL_VER
     ## name the logfile using something that cycles with date (day, month, year)    
     today = date.today()
     if test:
-        logfile = os.path.join("logs", "predict-test.log")
+        logfile = os.path.join(LOG_DIR, "predict-test.log")
     else:
-        logfile = os.path.join("logs", "predict-{}-{}.log".format(today.year, today.month))
+        logfile = os.path.join(LOG_DIR, "predict-{}-{}.log".format(today.year, today.month))
         
     ## write the data to a csv file    
     header = ['unique_id','timestamp', 'country', 'y_pred','y_proba','target_date','model_version','runtime']
