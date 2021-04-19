@@ -1,5 +1,6 @@
 .vscode
 src/__pycache__
+unittests/__pycache__
 solution-guidance
 .DS_store
 src/WORKSPACE.ipynb
