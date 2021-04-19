@@ -71,7 +71,7 @@ def predict():
 
         
     ## load model
-    all_data, all_models = model_load()
+    all_data, all_models = model_load(all_models=all_models, training=False)
     
     if len(all_models)==0:
         print("ERROR: model is not available")
