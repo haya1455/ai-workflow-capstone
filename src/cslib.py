@@ -31,6 +31,7 @@ def fetch_data(data_dir):
     if not len(os.listdir(data_dir)) > 0:
         raise Exception("specified data dir does not contain any files")
 
+    print(os.listdir(data_dir))
     file_list = [os.path.join(data_dir,f) for f in os.listdir(data_dir) if re.search("\.json",f)]
     correct_columns = ['country', 'customer_id', 'day', 'invoice', 'month',
                        'price', 'stream_id', 'times_viewed', 'year']

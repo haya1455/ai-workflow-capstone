@@ -147,7 +147,7 @@ def model_predict(country,year,month,day,all_models=None,test=False):
     ## load model if needed
     if not all_models:
         all_data,all_models = model_load(training=False)
-    
+        
     ## input checks
     if country not in all_models.keys():
         raise Exception("ERROR (model_predict) - model for country '{}' could not be found".format(country))
@@ -188,7 +188,7 @@ def model_predict(country,year,month,day,all_models=None,test=False):
     runtime = "%03d:%02d:%02d"%(h, m, s)
 
     ## update predict log
-    update_predict_log(country,y_pred,y_proba,target_date,
+    update_predict_log(country,y_pred,y_proba, query.to_dict(),target_date,
                        runtime, MODEL_VERSION, test=test)
     
     return({'y_pred':y_pred,'y_proba':y_proba})
