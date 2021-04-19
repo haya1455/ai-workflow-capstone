@@ -24,14 +24,6 @@ def landing():
 def index():
     return render_template('index.html')
 
-@app.route('/dashboard')
-def dashboard():
-    return render_template('dashboard.html')
-
-@app.route('/running', methods=['POST'])
-def running():
-    return render_template('running.html')
-
 @app.route('/predict', methods=['GET','POST'])
 def predict():
     """

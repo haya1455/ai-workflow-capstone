@@ -1,0 +1,4 @@
+unique_id,timestamp,country,y_pred,y_proba,query,target_date,model_version,runtime
+de40875b-b0de-40c3-9ab4-866dceb2728e,1618843342.692089,all,[0],"[0.6, 0.4]",{'feature': [0]},2021-04-19,0.1,00:00:02
+911a9e72-88bb-4cbc-b4f4-dc3a3b12b8ce,1618843342.69246,all,[0],"[0.6, 0.4]",{'feature': [0]},2021-04-19,0.1,00:00:02
+2ddd52b3-ef92-4a03-b099-3ef2fb93e054,1618843426.347847,all,[183590.62984],None,"{'previous_7': {37: 9366.830000000002}, 'previous_14': {37: 9366.830000000002}, 'previous_28': {37: 104108.71000000002}, 'previous_70': {37: 207674.59}, 'previous_year': {37: 0.0}, 'recent_invoices': {37: 52.53333333333333}, 'recent_views': {37: 4480.4}}",2018-01-05,0.1,000:00:25

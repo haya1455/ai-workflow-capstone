@@ -1,6 +1,6 @@
 import os 
-from src.model import model_train, model_load
-from src.config import DATA_DIR
+from model import model_train, model_load
+from config import DATA_DIR
 
 def main():
     
