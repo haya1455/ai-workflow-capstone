@@ -81,8 +81,9 @@ class LoggerTest(unittest.TestCase):
         runtime = "00:00:02"
         model_version = 0.1
         target_date = '2021-04-19'
+        query = {'feature':[0]}
 
-        update_predict_log(country, y_pred, y_proba, target_date, runtime,
+        update_predict_log(country, y_pred, y_proba, query, target_date, runtime,
                            model_version, test=True)
         
         self.assertTrue(os.path.exists(log_file))
@@ -102,8 +103,9 @@ class LoggerTest(unittest.TestCase):
         runtime = "00:00:02"
         model_version = 0.1
         target_date = '2021-04-19'
+        query = {'feature':[0]}
 
-        update_predict_log(country, y_pred, y_proba, target_date, runtime,
+        update_predict_log(country, y_pred, y_proba, query, target_date, runtime,
                            model_version, test=True)
 
         df = pd.read_csv(log_file)
