@@ -11,7 +11,7 @@ from src.config import LOG_DIR
 if not os.path.exists(LOG_DIR):
     os.mkdir(LOG_DIR)
 
-def update_train_log(country, timespan, eval_rmse, runtime, MODEL_VERSION, MODEL_VERSION_NOTE, test=False):
+def update_train_log(country, timespan, eval_test, runtime, MODEL_VERSION, MODEL_VERSION_NOTE, test=False):
     """
     update train log file
     """
@@ -24,7 +24,7 @@ def update_train_log(country, timespan, eval_rmse, runtime, MODEL_VERSION, MODEL
         logfile = os.path.join(LOG_DIR, "train-{}-{}.log".format(today.year, today.month))
         
     ## write the data to a csv file    
-    header = ['unique_id','timestamp', 'country', 'timespan', 'eval_rmse','model_version',
+    header = ['unique_id','timestamp', 'country', 'timespan', 'eval_test','model_version',
               'model_version_note','runtime']
     write_header = False
     if not os.path.exists(logfile):
@@ -34,7 +34,7 @@ def update_train_log(country, timespan, eval_rmse, runtime, MODEL_VERSION, MODEL
         if write_header:
             writer.writerow(header)
 
-        to_write = map(str, [uuid.uuid4(), time.time(), country, timespan, eval_rmse,
+        to_write = map(str, [uuid.uuid4(), time.time(), country, timespan, eval_test,
                             MODEL_VERSION, MODEL_VERSION_NOTE, runtime])
         writer.writerow(to_write)
 
